@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import {ListsType} from "../App";
+import {truncateString} from "../lib/truncateString";
 
 type ListProps = {
   list: ListsType
@@ -24,7 +25,7 @@ const IssueLists: FC<ListProps> = ({list}) => {
           </div>
           <span>({commentCounter(list.comments)})</span>
         </div>
-        <p className="break-words">{list.body.slice(0, 200)}</p>
+        <p className="break-words">{truncateString(list.body)}</p>
         <div className="flex space-x-2">
           {list.labels.map(label => <div className="text-xs border py-[1px] px-[5px]">{label.name}</div>)}
         </div>
