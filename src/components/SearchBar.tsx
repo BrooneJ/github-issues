@@ -15,18 +15,18 @@ function SearchBar() {
     event.preventDefault()
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className="space-y-2">
+      <div className="space-x-2">
         <label>Org: </label>
-        <input value={inputState.org} onChange={handleOrg}/>
+        <input value={inputState.org} onChange={handleOrg} className="px-2 py-1 rounded-sm"/>
         <label>Repo: </label>
-        <input value={inputState.repo} onChange={handleRepo}/>
-        <button>Load Repo</button>
+        <input value={inputState.repo} onChange={handleRepo} className="px-2 py-1 rounded-sm"/>
+        <button className="px-2 py-1 bg-blue-500 rounded-sm">Load Repo</button>
       </div>
-      <div>
+      <div className="space-x-2">
         <label>Issues Page: </label>
-        <input value={inputState.pageNumber} onChange={handlePageNumber}/>
-        <button>Jump to Page</button>
+        <input value={inputState.pageNumber} onChange={handlePageNumber} className="px-2 py-1 rounded-sm"/>
+        <button className="px-2 py-1 bg-blue-500 rounded-sm">Jump to Page</button>
       </div>
     </form>
   );
