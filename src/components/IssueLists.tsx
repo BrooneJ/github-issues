@@ -1,6 +1,6 @@
 import {FC} from 'react';
-import {ListsType} from "../App";
 import {truncateString} from "../lib/truncateString";
+import {ListsType} from "../types/issueList";
 
 type ListProps = {
   list: ListsType
