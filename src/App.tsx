@@ -6,16 +6,7 @@ import {fetchCount, fetchIssueList} from "./api/api";
 import IssueLists from "./components/IssueLists";
 import {ListsType} from "./types/issueList";
 import IssueCount from "./components/IssueCount";
-
-export type IssueCountType = {
-  html_url: string
-  name: string
-  open_issues_count: number
-  owner: {
-    login: string
-    html_url: string
-  }
-}
+import {IssueCountType} from "./types/issueCount";
 
 function App() {
   const {data: lists, isLoading: isListLoading} = useQuery<ListsType[]>('issues', fetchIssueList)
