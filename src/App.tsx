@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './App.css';
 import SearchBar from "./components/SearchBar";
 import {useQuery} from "react-query";
 import {fetchCount, fetchIssueList} from "./api/api";
