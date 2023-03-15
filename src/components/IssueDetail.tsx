@@ -4,11 +4,13 @@ import {fetchIssueDetail} from "../api/api";
 import {IssueDetailType} from "../types/issueDetail";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import IssueComment from "./IssueComment";
 
 const IssueDetail = () => {
   const location = useLocation()
   const {org, repo, number} = location.state
   const {data, isLoading} = useQuery<IssueDetailType>('issueDetail', () => fetchIssueDetail({org, repo, number}))
+  console.log(data)
   return (
     <div className="p-4 max-w-[820px] min-w-[820px] my-0 mx-auto">
       {isLoading ?
@@ -31,7 +33,7 @@ const IssueDetail = () => {
           <ReactMarkdown className="text-md leading-6" children={data!.body} remarkPlugins={[remarkGfm]}/>
         </div>}
       <hr className="max-w-[80%] mb-8 mt-2 mx-auto"/>
-      {data?.comments === 0 ? <span>No Comments</span> : null}
+      {data?.comments === 0 ? <span>No Comments</span> : <IssueComment repo={repo} org={org} number={number} /> }
     </div>
   );
 }

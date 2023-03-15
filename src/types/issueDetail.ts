@@ -1,4 +1,5 @@
 import {LabelType, UserType} from "./issueList";
+import {OrgRepo} from "./search";
 
 export type IssueDetailType = {
   html_url: string
@@ -12,3 +13,4 @@ export type IssueDetailType = {
   body: string
 }
 
+export type OrgRepoDetailNumber = OrgRepo & {number: number}
