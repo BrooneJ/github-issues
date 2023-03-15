@@ -11,3 +11,9 @@ export const fetchCount = async ({org, repo}: OrgRepo) => {
   const response = await axios.get(`https://api.github.com/repos/${org}/${repo}`)
   return response.data
 }
+
+export const fetchIssueDetail = async ({org, repo, number}: {org: string, repo: string, number: number}) => {
+  const response = await axios.get(`https://api.github.com/repos/${org}/${repo}/issues/${number}`)
+  console.log("res: ", response)
+  return response.data
+}

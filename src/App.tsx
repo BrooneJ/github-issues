@@ -25,7 +25,7 @@ function App() {
     org: inputValue.org,
     repo: inputValue.repo
   }))
-
+  console.log(lists)
   const countCheck = count ? <IssueCount count={count}/> : <span>Something wrong...</span>
 
   const isError = listError || countError
@@ -42,7 +42,7 @@ function App() {
             : <>
               {countCheck}
               {isListLoading ? <Loading /> : <>
-                {lists?.map(list => (<IssueLists list={list}/>))}
+                {lists?.map(list => (<IssueLists list={list} org={inputValue.org} repo={inputValue.repo}/>))}
               </>}
             </>
           }

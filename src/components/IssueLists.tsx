@@ -6,9 +6,11 @@ import {Link} from "react-router-dom";
 
 type ListProps = {
   list: ListsType
+  org: string
+  repo: string
 }
 
-const IssueLists: FC<ListProps> = ({list}) => {
+const IssueLists: FC<ListProps> = ({list, org, repo}) => {
   return (
     <div className="flex border-b-2 px-4 py-4">
       <a href={list.user.html_url} className="min-w-[80px] flex flex-col items-center mr-1">
@@ -17,7 +19,7 @@ const IssueLists: FC<ListProps> = ({list}) => {
       </a>
       <div className="flex flex-col space-y-2">
         <div>
-          <Link to={`/issue/${list.user.login}`}>
+          <Link to={`/issue/${list.user.login}`} state={{ org, repo, number: list.number}}>
             <span className="text-slate-500 text-[14px]">#{list.number} </span>
             <span className="font-bold text-[16px]">{list.title}</span>
           </Link>

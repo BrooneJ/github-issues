@@ -19,4 +19,5 @@ export type ListsType = {
   state: string
   body: string
   comments: number
+  html_url: string
 }
