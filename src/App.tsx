@@ -7,6 +7,8 @@ import IssueLists from "./components/IssueLists";
 import {ListsType} from "./types/issueList";
 import IssueCount from "./components/IssueCount";
 import {IssueCountType} from "./types/issueCount";
+import ErrorMessage from "./components/ErrorMessage";
+import Loading from "./components/Loading";
 
 function App() {
   const [inputValue, setInputValue] = useState({org: 'Facebook', repo: 'react', pageNumber: "1"});
@@ -34,12 +36,13 @@ function App() {
   return (
     <div className="p-4 max-w-[820px] min-w-[820px] my-0 mx-auto">
       <SearchBar setInputValue={setInputValue}/>
-      {isLoading ? <span>Loading...</span> :
+      {isLoading ? <Loading /> :
         <>
-          {isError ? <div className="text-red-500 text-3xl mt-10">Error occurred: {errorMessage}</div> :
-            <>
+          {isError ?
+            <ErrorMessage errorMessage={errorMessage} />
+            : <>
               {countCheck}
-              {isListLoading ? <span>Loading...</span> : <>
+              {isListLoading ? <Loading /> : <>
                 {lists?.map(list => (<IssueLists list={list}/>))}
               </>}
             </>
