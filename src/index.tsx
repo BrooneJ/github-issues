@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {QueryClient, QueryClientProvider} from "react-query";
 import {ReactQueryDevtools} from "react-query/devtools";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import IssueDetail from "./components/IssueDetail";
+import {router} from "./Router";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,8 +18,8 @@ const queryClient = new QueryClient()
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App/>
-      <ReactQueryDevtools initialIsOpen={true} />
+      <RouterProvider router={router}/>
+      <ReactQueryDevtools initialIsOpen={true}/>
     </QueryClientProvider>
   </React.StrictMode>
 );
