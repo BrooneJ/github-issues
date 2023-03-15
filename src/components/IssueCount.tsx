@@ -1,6 +1,6 @@
 import {FC} from "react";
-import {IssueCountType} from "../App";
 import {capitalizeFirstLetter} from "../lib/capitalizeFirstLetter";
+import {IssueCountType} from "../types/issueCount";
 
 type IssueCountProps = {
   count: IssueCountType
